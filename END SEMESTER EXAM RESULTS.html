@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>END SEMESTER EXAM RESULTS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://sist.sathyabama.ac.in/sist_ese_dec_2024/img/sist.ico">
+    <link rel="stylesheet" href="END%20SEMESTER%20EXAM%20RESULTS_files/bootstrap.min.css">
+    <script src="END%20SEMESTER%20EXAM%20RESULTS_files/jquery.min.js"></script>
+    <script src="END%20SEMESTER%20EXAM%20RESULTS_files/popper.min.js"></script>
+    <script src="END%20SEMESTER%20EXAM%20RESULTS_files/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="END%20SEMESTER%20EXAM%20RESULTS_files/font-awesome.min.css">
+    <style>
+        li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        #tblNote {
+            color: #831238;
+        }
+    </style>
+    <script type="text/javascript">
+        function isDate(txtDate) {
+            var currVal = txtDate;
+            if(currVal == '')
+                return false;
+            var rxDatePattern = /^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/;
+            var dtArray = currVal.match(rxDatePattern); // is format OK?
+            if (dtArray == null)
+                return false;
+            dtDay= dtArray[1];
+            dtMonth = dtArray[3];
+            dtYear = dtArray[5];
+            if (dtMonth < 1 || dtMonth > 12)
+                return false;
+            else if (dtDay < 1 || dtDay> 31)
+                return false;
+            else if ((dtMonth==4 || dtMonth==6 || dtMonth==9 || dtMonth==11) && dtDay ==31)
+                return false;
+            else if (dtMonth == 2)
+            {
+                var isleap = (dtYear % 4 == 0 && (dtYear % 100 != 0 || dtYear % 400 == 0));
+                if (dtDay> 29 || (dtDay ==29 && !isleap))
+                    return false;
+            }
+            return true;
+        }
+        $(document).ready(function() {
+            $("#regno").keydown(function (e) {
+                // Allow: backspace, delete, tab, escape, enter and .
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                    // Allow: Ctrl+A, Command+A
+                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                    // Allow: home, end, left, right, down, up
+                    (e.keyCode >= 35 && e.keyCode <= 40)) {
+                    // let it happen, don't do anything
+                    return;
+                }
+                // Ensure that it is a number and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+            $('#btnLogin').bind('click', function(e) {
+                e.preventDefault(); // Prevent default form submission
+                
+                var txtVal = $('#dob').val();
+                var regVal = $('#regno').val();
+                
+                // First validate the format
+                if (!$.isNumeric(regVal)) {
+                    alert('Invalid Register Number');
+                    $('#regno').focus();
+                    return false;
+                }
+
+                if (!isDate(txtVal)) {
+                    alert('Invalid Date of Birth');
+                    $('#dob').focus();
+                    return false;
+                }
+
+                // Fetch and check against data.json
+                fetch('data.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const student = data.students.find(s => 
+                            s.regNo === regVal && s.dateOfBirth === txtVal
+                        );
+
+                        if (student) {
+                            // If match found, redirect to the specific result page
+                            window.location.href = `${regVal}.html`;
+                        } else {
+                            alert('Invalid Register Number or Date of Birth');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while verifying your credentials');
+                    });
+
+                return false;
+            });
+        });
+    </script>
+</head>
+<body style="margin:30px" onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+<div class="container-fluid">
+    <div class="jumbotron jumbotron-fluid" style="background-color: #831238;">
+        <font color="#fff">
+            <h1 style="text-align: center;"><strong>S A T H Y A B A M A</strong></h1>
+            <h6 style="text-align: center;">INSTITUTE OF SCIENCE AND TECHNOLOGY</h6>
+            <p style="text-align: center">(Deemed to be University)</p>
+            <h1 style="text-align: center">End Semester Examination Results - Nov/Dec 2024<br> 
+                [Before Revaluation]
+            </h1>
+        </font>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <form class="form-horizontal" name="loginForm" id="loginForm" method="POST" role="form" autocomplete="off">
+            <table>
+                <tbody><tr>
+                    <td>
+                        <h4 style="text-align: center;">End Semester Examination Results (Before Revaluation) - Nov/Dec 2024<br>for the following batches<br></h4>
+                        <!-- <h6 style="text-align: center;"><b>** Results declared for Current Semester Courses (Regular) Only.</b></br></h6> -->
+                        <h6 style="text-align: left; margin-left: 0px">                           
+                            <ul>
+                                <li>B.E/B.Tech/B.Des/B.Pharm (2019-2023, 2020-2024, 2021-2025, 2022-2026, 2023-2027, 2024-2028)</li>
+                                <li>B.A./B.B.A./B.Com/B.E/B.Sc/B.Tech/LL.B/B.C.A. (2020-2023, 2021-2024, 2022-2025, 2023-2026, 2024-2027)</li>
+                                <li>M.Arch./M.B.A./M.Sc./M.A./M.Com./M.E./M.Pharm./M.Tech. (2020-2022, 2021-2023, 2022-2024, 2023-2025, 2024-2026)</li>
+                                <li>B.Arch/B.A. LL.B./B.Com LL.B./B.B.A LL.B. (2019-2024, 2020-2025, 2021-2026, 2022-2027, 2023-2028, 2024-2029)</li>
+                                <!-- <li>B.E/B.Tech (Part Time) (2023-2026, 2022-2025, 2021-2024, 2020-2023, 2019-2022)</li> -->
+                                <li>Pharm.D (2023-2029) / D.Pharm. (2023-2025, 2022-2024)</li>
+                            </ul>
+                            
+                        </h6>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <div class="form-group">
+                            <label for="regno" style="font-size: 25px;"><font color="#831238">Enter Register Number :* </font></label>
+                            <div>
+                                <input type="text" class="form-control" id="regno" name="regno" placeholder="Register Number" required="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob" style="font-size: 25px;"><font color="#831238">Enter Date of Birth (dd/mm/yyyy):* </font><i class="fa fa-key"></i></label>
+                            <div>
+                                <input type="password" class="form-control" name="dob" id="dob" placeholder="dd/mm/yyyy" required="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" id="btnLogin" class="btn btn-success btn-lg btn-block" style="background-color: #831238;">Login <i class="fa fa-sign-in"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody></table>
+            <!--
+          <div class="form-group">
+            <label for="regno" style="font-size: 25px;"><font color="#831238">Enter Register Number :* </font></label>
+            <div>
+              <input type="text" class="form-control" id="regno" name="regno" placeholder="Register Number" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dob" style="font-size: 25px;"><font color="#831238">Enter Date of Birth (dd/mm/yyyy):* </font><i class="fa fa-key"></i></label>
+            <div>
+              <input type="password" class="form-control" name="dob" id="dob" placeholder="dd/mm/yyyy" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" id="btnLogin" class="btn btn-success btn-lg btn-block" style="background-color: #831238;">Login <i class="fa fa-sign-in"></i></button>
+          </div>
+          -->
+        </form>
+        <table id="tblNote" class="table">
+            <tbody><tr><td>
+                    <dl><dt>Disclaimer : The institution is not 
+responsible for any inadvertent error that may have crept in the results
+ being published in the internet.</dt>
+                        <dt>PLEASE NOTE: <br>
+                            <ul>
+                                <!-- <li><a href="https://fees.sathyabama.ac.in/arrearfees_home.php">Click Here to pay Arrear Fees</a></li> -->
+                                <li>The Results published in the 
+internet are for immediate information to the examinees. This cannot be 
+treated as Original Mark Sheets.</li>
+                                <!-- <li>The results are published in the Internet for all programmes and all batches.</li>-->
+                                <li>For any Clarifications regarding the results, please MAIL TO : <u>coe@sathyabama.ac.in</u> with details of your Name, Register Number and your Query.</li>
+                            </ul>
+                        </dt>
+                        <br>
+                        <font color="red">
+                            <strong><center>Revaluation portal will be activated in the first week of January 2025.</center></strong>
+                            <!-- <strong><center>Arrear fee payment portal will be opened shortly.</center></strong> -->
+                            <!-- <strong><center><a href="http://www.sathyabama.ac.in/revaluation_home.php">Click Here to Apply for Revaluation</a></center></strong> -->
+                        </font>
+
+                    </dl>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+
+<script src="END%20SEMESTER%20EXAM%20RESULTS_files/noback.js"></script>
+
+</body></html>
