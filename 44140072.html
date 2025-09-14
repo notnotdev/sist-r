@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>SIST-ESE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://sist.sathyabama.ac.in/sist_ese_dec_2024/img/sist.ico">
+    <link rel="stylesheet" href="SIST-ESE_files/bootstrap.min.css">
+    <script src="SIST-ESE_files/jquery.min.js"></script>
+    <script src="SIST-ESE_files/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="SIST-ESE_files/font-awesome.min.css">
+    <style>
+        .fail {
+            background-color: red;
+            color: white;
+        }
+
+        .absent {
+            background-color: orange;
+            color: white;
+        }
+
+        .withheld {
+            background-color: #831238;
+            color: white;
+            text-align: center;
+        }
+
+        .stuinfo {
+            background-color: #831238;
+            color: white;
+        }
+
+        .spacing {
+            margin-left: 20px;
+        }
+
+        #tblNote {
+            color: #0000FF;
+        }
+    </style>
+</head>
+
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+    <div class="container-fluid" style="margin-top:0px">
+        <div id="nav-placeholder">
+            <style>
+                .navbar-default {
+                    background-color: #4A235A;
+                }
+
+                .navbar-default .navbar-brand {
+                    color: gold;
+                }
+            </style>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand"><img id="logo" src="SIST-ESE_files/sist.jpg" alt="SIST" height="25px"
+                                width="25px"></a>
+                        <a class="navbar-brand" href="http://www.sathyabama.ac.in/">SATHYABAMA</a>
+                    </div>
+                    <button class="btn btn-success navbar-btn" id="btnPrint" onclick="window.print()"><i
+                            class="fa fa-print" style="font-size:16px;"></i> Print</button>
+                    <button class="btn btn-success navbar-btn" id="btnExport" onclick="exportToExcel()"><i
+                            class="fa fa-file-text-o" style="font-size:16px;"></i> Export</button>
+                    <div class="nav navbar-nav navbar-right">
+                        <button type="submit" class="btn btn-warning navbar-btn" id="btnLogout"
+                            onclick="window.location='logout.php'"><i class="fa fa-sign-out"
+                                style="font-size:16px;"></i> Logout </button>
+                    </div>
+                </div>
+            </nav>
+            <script src="SIST-ESE_files/noback.js"></script>
+        </div>
+
+        <div style="text-align: center;" class="bg-warning" id="header2">
+            <font color="#831238">
+                <h1 style="text-align: center;"><strong>S A T H Y A B A M A</strong></h1>
+                <h6 style="text-align: center;"> INSTITUTE OF SCIENCE AND TECHNOLOGY</h6>
+                <p style="text-align: center">(Deemed to be University)</p>
+                <h3 style="text-align: center">End Semester Examination Results - Nov/Dec 2024<br>
+                    [Before Revaluation] </h3>
+            </font>
+        </div>
+        <div id="tblData" class="table-responsive">
+
+            <table id="tblInfo" class="table">
+                <tbody>
+                    <tr class="stuinfo">
+                        <td>Register Number: 44140072</td>
+                        <td>Student Name: Md. Nafis</td>
+                        <td>Programme: Bachelor of Engineering - ELECTRICAL AND ELECTRONICS ENGINEERING</td>
+                        <td>Batch: 2024-2028</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table id="tblDisplay" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Semester</th>
+                        <th>Course Code</th>
+                        <th>Course Title</th>
+                        <th>Course Type</th>
+                        <th>Internal Marks</th>
+                        <th>External Marks</th>
+                        <th>Total</th>
+                        <th>Max. Marks</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>SECB1101</td>
+                        <td>Fundamentals of Electronic Devices</td>
+                        <td>Theory</td>
+                        <td>40</td>
+                        <td>31</td>
+                        <td>71</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>SECB1102</td>
+                        <td>Fundamentals of Digital Systems</td>
+                        <td>Theory</td>
+                        <td>35</td>
+                        <td>23</td>
+                        <td>58</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>SMTB1101</td>
+                        <td>Matrices and Calculus</td>
+                        <td>Theory</td>
+                        <td>40</td>
+                        <td>41</td>
+                        <td>81</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>SPHB1104</td>
+                        <td>Physics</td>
+                        <td>Theory</td>
+                        <td>41</td>
+                        <td>25</td>
+                        <td>66</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>SMEB2102</td>
+                        <td>Engineering Drawing and Design</td>
+                        <td>Theory</td>
+                        <td>36</td>
+                        <td>37</td>
+                        <td>73</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>SPHB2101</td>
+                        <td>Physics Lab</td>
+                        <td>Practical</td>
+                        <td>19</td>
+                        <td>22</td>
+                        <td>41</td>
+                        <td>50</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>S11BLH12</td>
+                        <td>Problem Solving Techniques using C</td>
+                        <td>Theory and Practical</td>
+                        <td>32</td>
+                        <td>43</td>
+                        <td>75</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>SISB4151</td>
+                        <td>Environmental Science and Engineering – Mandatory Audit Course (Non-credit)</td>
+                        <td>Non-credit</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>Pass</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table id="tblNote" class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <font color="#831238">
+                                <dl>
+                                    <dt>Disclaimer: The institution is not
+                                        responsible for any inadvertent error that may have crept in the results
+                                        being published in the internet.</dt>
+                                    <dt>PLEASE NOTE: <br>
+                                        <ul>
+                                            <li>Revaluation portal will be activated in the first week of January 2025
+                                            </li>
+                                            <li>Minimum requirement for pass in
+                                                each subject: Should have secured a minimum of 30% in the End Semester
+                                                Examinations and also a minimum of 50% in total maximum marks. </li>
+                                            <li>The Results published in the
+                                                internet are for immediate information to the examinees. This cannot be
+                                                treated as Original Mark Sheets</li>
+
+
+                                    </dt>
+                                    <br>
+
+                                </dl>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="SIST-ESE_files/noback.js"></script>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("html/navigation.html");
+        });
+    </script>
+</body>
+
+</html>
