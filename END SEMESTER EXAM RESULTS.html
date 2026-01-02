@@ -1,61 +1,51 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html lang="en">
+
+<head>
     <title>END SEMESTER EXAM RESULTS</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="https://sist.sathyabama.ac.in/sist_ese_dec_2024/img/sist.ico">
-    <link rel="stylesheet" href="END%20SEMESTER%20EXAM%20RESULTS_files/bootstrap.min.css">
-    <script src="END%20SEMESTER%20EXAM%20RESULTS_files/jquery.min.js"></script>
-    <script src="END%20SEMESTER%20EXAM%20RESULTS_files/popper.min.js"></script>
-    <script src="END%20SEMESTER%20EXAM%20RESULTS_files/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="END%20SEMESTER%20EXAM%20RESULTS_files/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/sist.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <style>
         li:not(:last-child) {
             margin-bottom: 10px;
         }
+
         #tblNote {
-            color: #6a0f2b; /* Adjusted color to match image */
-        }
-        .jumbotron {
-            background-color: #6a0f2b !important; /* Adjusted color to match image */
-        }
-        .btn-custom-login {
-             background-color: #6a0f2b !important;
-             border-color: #6a0f2b !important;
-        }
-        .form-label-custom {
-            color: #6a0f2b !important;
+            color: #831238;
         }
     </style>
     <script type="text/javascript">
-        // THIS SCRIPT IS PRESERVED FROM YOUR ORIGINAL CODE
         function isDate(txtDate) {
             var currVal = txtDate;
-            if(currVal == '')
+            if (currVal == '')
                 return false;
             var rxDatePattern = /^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/;
             var dtArray = currVal.match(rxDatePattern); // is format OK?
             if (dtArray == null)
                 return false;
-            dtDay= dtArray[1];
+            dtDay = dtArray[1];
             dtMonth = dtArray[3];
             dtYear = dtArray[5];
             if (dtMonth < 1 || dtMonth > 12)
                 return false;
-            else if (dtDay < 1 || dtDay> 31)
+            else if (dtDay < 1 || dtDay > 31)
                 return false;
-            else if ((dtMonth==4 || dtMonth==6 || dtMonth==9 || dtMonth==11) && dtDay ==31)
+            else if ((dtMonth == 4 || dtMonth == 6 || dtMonth == 9 || dtMonth == 11) && dtDay == 31)
                 return false;
-            else if (dtMonth == 2)
-            {
+            else if (dtMonth == 2) {
                 var isleap = (dtYear % 4 == 0 && (dtYear % 100 != 0 || dtYear % 400 == 0));
-                if (dtDay> 29 || (dtDay ==29 && !isleap))
+                if (dtDay > 29 || (dtDay == 29 && !isleap))
                     return false;
             }
             return true;
         }
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#regno").keydown(function (e) {
                 // Allow: backspace, delete, tab, escape, enter and .
                 if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
@@ -71,113 +61,159 @@
                     e.preventDefault();
                 }
             });
-            $('#btnLogin').bind('click', function(e) {
-                e.preventDefault(); // Prevent default form submission
-                
+            $('#btnLogin').bind('click', function (e) {
+                e.preventDefault();
                 var txtVal = $('#dob').val();
                 var regVal = $('#regno').val();
-                
-                // First validate the format
-                if (!$.isNumeric(regVal)) {
-                    alert('Invalid Register Number');
-                    $('#regno').focus();
-                    return false;
-                }
 
-                if (!isDate(txtVal)) {
-                    alert('Invalid Date of Birth');
-                    $('#dob').focus();
-                    return false;
-                }
-
-                // Fetch and check against data.json
                 if (regVal === '43090701' && txtVal === '30-07-2005') {
-                    window.location.href = '43090701.mhtml';
+                    window.location.href = '43090701.html';
                 } else {
                     alert('Invalid Register Number or Date of Birth');
+                    return false;
                 }
-
-                return false;
             });
         });
     </script>
 </head>
-<body style="margin:0" onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
-<div class="container-fluid" style="padding: 0;">
-    <div class="jumbotron jumbotron-fluid">
-        <font color="#fff">
-            <h1 style="text-align: center; letter-spacing: 5px;"><strong>SATHYABAMA</strong></h1>
-            <h6 style="text-align: center;">INSTITUTE OF SCIENCE AND TECHNOLOGY</h6>
-            <p style="text-align: center">(Deemed to be University)</p>
-            <h1 style="text-align: center; font-size: 1.8rem; margin-top: 20px;">End Semester Examination Results (Regular/Arrear) - Apr/May 2025<br> 
-                [Before Revaluation]
-            </h1>
-        </font>
-    </div>
-</div>
-<div class="container" style="margin-top: 40px;">
-    <div class="row justify-content-center align-items-center">
-        <!-- Left Column with Programmes List -->
-        <div class="col-md-6">
-            <h4 style="font-weight: bold;">End Semester Examination Results - Apr/May 2025<br>for the following programmes</h4>
-            <ul style="list-style-type: disc; padding-left: 20px; margin-top: 15px;">
-                <li>B.E/B.Tech/B.Des/B.Pharm</li>
-                <li>B.A/B.Sc./B.Com/BBA/BCA/LL.B.</li>
-                <li>M.E./M.Tech/M.Arch/M.B.A/M.Com/M.A./MCA/M.Sc./M.Pharm.</li>
-                <li>B.Arch/B.A. LL.B./B.Com LL.B./B.B.A LL.B./M.Sc CS (Integrated)</li>
-                <li>D.Pharm.</li>
-                <li>B.E/B.Tech (Part Time)</li>
-            </ul>
+
+<body style='margin:30px' onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <div class="container-fluid">
+        <div class="jumbotron jumbotron-fluid" style="background-color: #831238;">
+            <font color="#fff">
+                <h1 style="text-align: center;"><strong>S A T H Y A B A M A</strong></h1>
+                <h6 style="text-align: center;">INSTITUTE OF SCIENCE AND TECHNOLOGY</h6>
+                <p style="text-align: center">(Deemed to be University)</h2>
+                    <font color="#FFD700">
+                        <h2 style="text-align: center"><strong>CHENNAI CAMPUS</strong>
+                </p>
+            </font>
+            <h1 style="text-align: center">End Semester Examination Results (Regular/Arrear) - Nov/Dec 2025 <br>
+                [Before Revaluation] </h1>
+            </font>
         </div>
-        <!-- Right Column with Login Form -->
-        <div class="col-md-6">
-             <form class="form-horizontal" name="loginForm" id="loginForm" method="POST" role="form" autocomplete="off">
-                <div class="form-group">
-                    <label for="regno" style="font-size: 18px;"><font class="form-label-custom">Enter Register Number :* </font></label>
-                    <div>
-                        <input type="text" class="form-control" id="regno" name="regno" placeholder="Register Number" required="">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="dob" style="font-size: 18px;"><font class="form-label-custom">Enter Date of Birth (dd/mm/yyyy):* </font><i class="fa fa-search"></i></label>
-                    <div>
-                        <input type="password" class="form-control" name="dob" id="dob" placeholder="dd/mm/yyyy" required="">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" id="btnLogin" class="btn btn-success btn-lg btn-block btn-custom-login">Login <i class="fa fa-long-arrow-right"></i></button>
-                </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <form class="form-horizontal" name="loginForm" id="loginForm" method="POST" role="form" autocomplete="off"
+                action="#">
+                <table>
+                    <tr>
+                        <td>
+                            <h4 style="text-align: center;">End Semester Examination Results - Nov/Dec 2025 <br>for the
+                                following programmes</br></h4>
+                            <!-- <h6 style="text-align: center;"><b>** Results declared for Current Semester Courses (Regular) Only.</b></br></h6> -->
+                            <h6 style="text-align: left; margin-left: 0px">
+                                <ul>
+                                    <li>D.Pharm/LL.M./M.A/M.ARCH/M.B.A./M.Com/M.E./M.Pharm/M.Sc/M.TECH./MCA
+                                        [2022-2024,2023-2025,2024-2026,2025-2027]</li>
+                                    <li>B.A/B.COM/B.Sc/BBA/BCA/LL.B. [2021-2024,2022-2025,2023-2026,2024-2027,2025-2028]
+                                    </li>
+                                    <li>B.DES/B.E/B.Pharm/B.Tech
+                                        [2020-2024,2021-2024,2021-2025,2022-2025,2022-2026,2023-2026,2023-2027,2024-2028,2025-2029]
+                                    </li>
+                                    <li>B.Arch/B.B.A.,LL.B./B.COM.,LL.B./M.Sc
+                                        [2019-2024,2020-2025,2021-2026,2022-2027,2023-2028,2024-2029,2025-2030]</li>
+                                    <li>Pharm.D. [2023-2029,2024-2030]</li>
+
+                                    <!-- 
+                                <li>B.E/B.Tech/B.Des/B.Pharm (2023-2027, 2022-2026, 2021-2025, 2020-2024, 2019-2023, 2018-2022)</li>
+                                <li>B.A/B.Sc./B.Com/BBA/LL.B. (2023-2026, 2022-2025, 2021-2024, 2020-2023, 2019-2022)</li>
+                                <li>M.E./M.Tech/M.Arch/M.B.A/M.Com/M.A./M.Sc./M.Pharm. (2023-2025, 2022-2024, 2021-2023, 2020-2022)</li>                                
+                                <li>B.Arch/B.A. LL.B./B.Com LL.B./B.B.A LL.B. (2023-2028, 2022-2027, 2021-2026, 2020-2025, 2019-2024, 2018-2023, 2017-2022)</li>
+                                <li>B.E/B.Tech (Part Time) (2023-2026, 2022-2025, 2021-2024, 2020-2023, 2019-2022)</li>
+                                <li>Pharm.D (2023-2029) / D.Pharm. (2023-2025, 2022-2024, 2021-2023)</li> -->
+
+
+                                </ul>
+
+                            </h6>
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <div class="form-group">
+                                <label for="regno" style="font-size: 25px;">
+                                    <font color="#831238">Enter Register Number :* </font>
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" id="regno" name="regno"
+                                        placeholder="Register Number" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob" style="font-size: 25px;">
+                                    <font color="#831238">Enter Date of Birth (dd/mm/yyyy):* </font><i
+                                        class="fa fa-key"></i>
+                                </label>
+                                <div>
+                                    <input type="password" class="form-control" name="dob" id="dob"
+                                        placeholder="dd/mm/yyyy" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="btnLogin" class="btn btn-success btn-lg btn-block"
+                                    style="background-color: #831238;">Login <i class="fa fa-sign-in"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <!--
+          <div class="form-group">
+            <label for="regno" style="font-size: 25px;"><font color="#831238">Enter Register Number :* </font></label>
+            <div>
+              <input type="text" class="form-control" id="regno" name="regno" placeholder="Register Number" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dob" style="font-size: 25px;"><font color="#831238">Enter Date of Birth (dd/mm/yyyy):* </font><i class="fa fa-key"></i></label>
+            <div>
+              <input type="password" class="form-control" name="dob" id="dob" placeholder="dd/mm/yyyy" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" id="btnLogin" class="btn btn-success btn-lg btn-block" style="background-color: #831238;">Login <i class="fa fa-sign-in"></i></button>
+          </div>
+          -->
             </form>
-        </div>
-    </div>
-    <hr>
-    <!-- Disclaimer and Notes Section -->
-    <div class="row justify-content-center" style="margin-top: 20px;">
-        <div class="col-md-12">
-            <table id="tblNote" class="table table-borderless">
-                <tbody><tr><td>
-                        <dl><dt>Disclaimer : The institution is not 
-    responsible for any inadvertent error that may have crept in the results
-     being published in the internet.</dt><br>
-                            <dt>PLEASE NOTE: 
-                                <ul style="font-weight: normal; list-style-type: disc; padding-left: 20px; margin-top: 10px;">
-                                    <li>The Results published in the internet are for immediate information to the examinees. This cannot be treated as Original Mark Sheets.</li>
-                                    <li>For any Clarifications regarding the results, please MAIL TO : <u>coe@sathyabama.ac.in</u> with details of your Name, Register Number and your Query.</li>
+            <table id="tblNote" class="table">
+                <tr>
+                    <td>
+                        <dl>
+                            <dt>Disclaimer : The institution is not responsible for any inadvertent error that may have
+                                crept in the results being published in the internet.</dt>
+                            <dt>PLEASE NOTE: </br>
+                                <ul>
+                                    <!-- <li><a href="https://fees.sathyabama.ac.in/arrearfees_home.php">Click Here to pay Arrear Fees</a></li> -->
+                                    <li>The Results published in the internet are for immediate information to the
+                                        examinees. This cannot be treated as Original Mark Sheets.</li>
+                                    <!-- <li>The results are published in the Internet for all programmes and all batches.</li>-->
+                                    <li>For any Clarifications regarding the results, please MAIL TO : <u><a
+                                                href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                data-cfemail="ceada1ab8ebdafbaa6b7afacafa3afe0afade0a7a0">[email&#160;protected]</a></u>
+                                        with details of your Name, Register Number and your Query.</li>
                                 </ul>
                             </dt>
-                            <br>
+                            <br />
                             <font color="red">
-                                <strong><center>Revaluation portal will be activated shortly.</center></strong>
+                                <strong>
+                                    <center>Revaluation portal will be activated in the second Week of January 2026.
+                                    </center>
+                                </strong>
+                                <!-- <strong><center>Arrear fee payment portal will be opened shortly.</center></strong> -->
+                                <!-- <strong><center><a href="http://www.sathyabama.ac.in/revaluation_home.php">Click Here to Apply for Revaluation</a></center></strong-->
                             </font>
-    
+
                         </dl>
                     </td>
                 </tr>
-            </tbody></table>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
         </div>
     </div>
-</div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</body>
+<script src="js/noback.js"></script>
 
-<script src="END%20SEMESTER%20EXAM%20RESULTS_files/noback.js"></script>
-
-</body></html>
+</html>
