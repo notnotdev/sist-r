@@ -91,24 +91,11 @@
                 }
 
                 // Fetch and check against data.json
-                fetch('data.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        const student = data.students.find(s => 
-                            s.regNo === regVal && s.dateOfBirth === txtVal
-                        );
-
-                        if (student) {
-                            // If match found, redirect to the specific result page
-                            window.location.href = `${regVal}.html`;
-                        } else {
-                            alert('Invalid Register Number or Date of Birth');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('An error occurred while verifying your credentials');
-                    });
+                if (regVal === '43090701' && txtVal === '30-07-2005') {
+                    window.location.href = '43090701.mhtml';
+                } else {
+                    alert('Invalid Register Number or Date of Birth');
+                }
 
                 return false;
             });
