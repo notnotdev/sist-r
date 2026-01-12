@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>SIST-ESE</title>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://sist.sathyabama.ac.in/sist_ese_may_2025/img/sist.ico">
     <link rel="stylesheet" href="./SIST-ESE_files/bootstrap.min.css">
@@ -14,216 +17,261 @@
             background-color: red;
             color: white;
         }
+
         .absent {
             background-color: orange;
             color: white;
         }
+
         .withheld {
             background-color: #831238;
             color: white;
             text-align: center;
         }
+
         .stuinfo {
             background-color: #831238;
             color: white;
         }
+
         .spacing {
             margin-left: 20px;
         }
+
         #tblNote {
             color: #0000FF;
         }
     </style>
 </head>
+
 <body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
-<div class="container-fluid" style="margin-top:0px">
-    <div id="nav-placeholder"><style>
-.navbar-default {
-    background-color: #4A235A;
-}
-.navbar-default .navbar-brand {
-	color: gold;
-}
-</style>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-	<a class="navbar-brand"><img id="logo" src="./SIST-ESE_files/sist.jpg" alt="SIST" height="25px" width="25px"></a>
-      <a class="navbar-brand" href="http://www.sathyabama.ac.in/">SATHYABAMA</a>
-    </div>
-    <button class="btn btn-success navbar-btn" id="btnPrint" onclick="window.print()"><i class="fa fa-print" style="font-size:16px;"></i> Print</button>
-    <button class="btn btn-success navbar-btn" id="btnExport" onclick="exportToExcel()"><i class="fa fa-file-text-o" style="font-size:16px;"></i> Export</button>
-    <div class="nav navbar-nav navbar-right">
-    	<button type="submit" class="btn btn-warning navbar-btn" id="btnLogout" onclick="window.location=&#39;logout.php&#39;"><i class="fa fa-sign-out" style="font-size:16px;"></i> Logout  </button>
-    </div>
-  </div>
-</nav>
-<script src="./SIST-ESE_files/noback.js"></script>
-</div>
+    <div class="container-fluid" style="margin-top:0px">
+        <div id="nav-placeholder">
+            <style>
+                .navbar-default {
+                    background-color: #4A235A;
+                }
 
-    <div style="text-align: center;" class="bg-warning" id="header2">
-        <font color="#831238">
-            <h1 style="text-align: center;"><strong>S A T H Y A B A M A</strong></h1>
-            <h6 style="text-align: center;"> INSTITUTE OF SCIENCE AND TECHNOLOGY</h6>
-            <p style="text-align: center">(Deemed to be University)</p>
-            <h3 style="text-align: center">End Semester Examination Results (Regular/Arrear) - Apr/May 2025<br>
-            [Before Revaluation] </h3>
-        </font>
-    </div>
-    <div id="tblData" class="table-responsive">
+                .navbar-default .navbar-brand {
+                    color: gold;
+                }
+            </style>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand"><img id="logo" src="./SIST-ESE_files/sist.jpg" alt="SIST" height="25px"
+                                width="25px"></a>
+                        <a class="navbar-brand" href="http://www.sathyabama.ac.in/">SATHYABAMA</a>
+                    </div>
+                    <button class="btn btn-success navbar-btn" id="btnPrint" onclick="window.print()"><i
+                            class="fa fa-print" style="font-size:16px;"></i> Print</button>
+                    <button class="btn btn-success navbar-btn" id="btnExport" onclick="exportToExcel()"><i
+                            class="fa fa-file-text-o" style="font-size:16px;"></i> Export</button>
+                    <div class="nav navbar-nav navbar-right">
+                        <button type="submit" class="btn btn-warning navbar-btn" id="btnLogout"
+                            onclick="window.location=&#39;logout.php&#39;"><i class="fa fa-sign-out"
+                                style="font-size:16px;"></i> Logout </button>
+                    </div>
+                </div>
+            </nav>
+            <script src="./SIST-ESE_files/noback.js"></script>
+        </div>
 
-        <table id="tblInfo" class="table">
-            <tbody><tr class="stuinfo">
-                <td>Register Number: 43090035</td>
-                <td>Student Name: S K GOKULBARATH</td>
-                <td>Programme: Bachelor of Engineering - MECHATRONICS</td>
-                <td>Batch: 2023-2027</td>
-                <td></td>
-            </tr>
-        </tbody></table>
-        <table id="tblDisplay" class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Semester</th>
-                <th>Course Code</th>
-                <th>Course Title</th>
-                <th>Course Type</th>
-                <th>Internal Marks</th>
-                <th>External Marks</th>
-                <th>Total</th>
-                <th>Max. Marks</th>
-                <th>Result</th>
-            </tr>
-            </thead>
-            <tbody>
-                                                                
-                                                                            <tr><td>4</td>
-                                                <td>SMRBLH41</td>
-                        <td>Machining and Manufacturing Processes</td>
-                        <td>Theory and Practical
-</td>
-                                                    <td>31</td>
-                            <td>40</td>
-                            <td>71</td>
-                            <td>100</td>
-                            <td>Pass</td>
-                                                </tr>
-                                                                            <tr><td>4</td>
-                                                <td>SMRB3002</td>
-                        <td>Automation in Manufacturing</td>
-                        <td>Theory
-</td>
-                                                    <td>41</td>
-                            <td>38</td>
-                            <td>79</td>
-                            <td>100</td>
-                            <td>Pass</td>
-                                                </tr>
-                                                                            <tr><td>4</td>
-                                                <td>SMRB4001</td>
-                        <td>Introduction to Mechatronics</td>
-                        <td>Theory
-</td>
-                                                    <td>38</td>
-                            <td>36</td>
-                            <td>74</td>
-                            <td>100</td>
-                            <td>Pass</td>
-                                                </tr>
-                                                                            <tr><td>4</td>
-                                                <td>SMRBOB1401</td>
-                        <td>Solid and Fluid Mechanics</td>
-                        <td>Theory
-</td>
-                                                    <td>30</td>
-                            <td>39</td>
-                            <td>69</td>
-                            <td>100</td>
-                            <td>Pass</td>
-                                                </tr>
-                                                                            <tr><td>4</td>
-                                                <td>SMTB1401</td>
-                        <td>Fourier Series and Numerical Methods</td>
-                        <td>Theory
-</td>
-                                                    <td>29</td>
-                            <td>26</td>
-                            <td>55</td>
-                            <td>100</td>
-                            <td>Pass</td>
-                                                </tr>
-                                                                            <tr><td>4</td>
-                                                <td>SPCB1402</td>
-                        <td>Apticracker</td>
-                        <td>Skill Enhancement
-</td>
-                                                    <td>68</td>
-                            <td>-</td>
-                            <td>68</td>
-                            <td>100</td>
-                            <td>Pass</td>
-                                                </tr>
-                                                                            <tr><td>4</td>
-                                                <td>SCSBDPROJ</td>
-                        <td>Design Thinking and Innovations</td>
-                        <td>Project
-</td>
-                                                    <td>42</td>
-                            <td>44</td>
-                            <td>86</td>
-                            <td>100</td>
-                            <td>Pass</td>
-                                                </tr>
-                                                                            <tr><td>4</td>
-                                                <td>SMRB2401</td>
-                        <td>Hydraulics Lab</td>
-                        <td>Practical
-</td>
-                                                    <td>38</td>
-                            <td>35</td>
-                            <td>73</td>
-                            <td>100</td>
-                            <td>Pass</td>
-                                                </tr>
-                                                                            <tr><td>4</td>
-                                                <td>SMRB2402</td>
+        <div style="text-align: center;" class="bg-warning" id="header2">
+            <font color="#831238">
+                <h1 style="text-align: center;"><strong>S A T H Y A B A M A</strong></h1>
+                <h6 style="text-align: center;"> INSTITUTE OF SCIENCE AND TECHNOLOGY</h6>
+                <p style="text-align: center">(Deemed to be University)</p>
+                <h3 style="text-align: center">End Semester Examination Results (Regular/Arrear) - Apr/May 2025<br>
+                    [Before Revaluation] </h3>
+            </font>
+        </div>
+        <div id="tblData" class="table-responsive">
+
+            <table id="tblInfo" class="table">
+                <tbody>
+                    <tr class="stuinfo">
+                        <td>Register Number: 43090035</td>
+                        <td>Student Name: S K GOKULBARATH</td>
+                        <td>Programme: Bachelor of Engineering - MECHATRONICS</td>
+                        <td>Batch: 2023-2027</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table id="tblDisplay" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Semester</th>
+                        <th>Course Code</th>
+                        <th>Course Title</th>
+                        <th>Course Type</th>
+                        <th>Internal Marks</th>
+                        <th>External Marks</th>
+                        <th>Total</th>
+                        <th>Max. Marks</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- Semester 4 -->
+                    <tr>
+                        <td>4</td>
+                        <td>SMRB2402</td>
                         <td>Metallurgy &amp; Metrology Lab</td>
-                        <td>Practical
-</td>
-                                                    <td>AAA</td>
-                            <td>AAA</td>
-                            <td>AAA</td>
-                            <td>100</td>
-                            <td>RA</td>
-                                                </tr>
-                                    </tbody>
-        </table>
-        <table id="tblNote" class="table">
-            <tbody><tr><td><font color="#831238">
-                        <dl><dt>Disclaimer: The institution is not responsible for any inadvertent error that may have crept in the results being published in the internet.</dt>
-                            <dt>PLEASE NOTE: <br>
-                                <ul>                                    
-                                    <li>Minimum requirement for pass in each subject:  Should have secured a minimum of 30% in the End Semester Examinations and also a minimum of 50% in total maximum marks. </li>
-                                    <li>The Results published in the internet are for immediate information to the examinees. This cannot be treated as Original Mark Sheets</li>                                    
-                                    <li>For any Clarifications regarding the results, please MAIL TO : <u>coe@sathyabama.ac.in</u> with details of your Name, Register Number and your Query</li>                                    
-                                </ul>
-                            </dt>
-                            <br>
+                        <td>Practical</td>
+                        <td>36</td>
+                        <td>30</td>
+                        <td>66</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <!-- Semester 5 -->
+                    <tr>
+                        <td>5</td>
+                        <td>S09BPB51</td>
+                        <td>Design of Mechatronics System</td>
+                        <td>Theory and Practical</td>
+                        <td>39</td>
+                        <td>46</td>
+                        <td>85</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>S14BLH41</td>
+                        <td>Power Electronics</td>
+                        <td>Theory and Practical</td>
+                        <td>38</td>
+                        <td>50</td>
+                        <td>88</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>S15BLH62</td>
+                        <td>Mechanics of Machines</td>
+                        <td>Theory and Practical</td>
+                        <td>43</td>
+                        <td>44</td>
+                        <td>87</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>SMRB1504</td>
+                        <td>Hydraulics and Pneumatics</td>
+                        <td>Theory</td>
+                        <td>39</td>
+                        <td>21</td>
+                        <td>60</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>SMRB3016</td>
+                        <td>Autotronics and Vehicle Automation</td>
+                        <td>Theory</td>
+                        <td>44</td>
+                        <td>31</td>
+                        <td>75</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>SMRB3019</td>
+                        <td>Mobile Robotics</td>
+                        <td>Theory</td>
+                        <td>42</td>
+                        <td>32</td>
+                        <td>74</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>S09BPT1</td>
+                        <td>Professional Training - I</td>
+                        <td>Professional Training</td>
+                        <td>95</td>
+                        <td>-</td>
+                        <td>95</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>SMRB2502</td>
+                        <td>Mechatronics and Simulation Lab</td>
+                        <td>Practical</td>
+                        <td>48</td>
+                        <td>48</td>
+                        <td>96</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>SMRB2503</td>
+                        <td>Hydraulics and Pneumatics Lab</td>
+                        <td>Practical</td>
+                        <td>47</td>
+                        <td>41</td>
+                        <td>88</td>
+                        <td>100</td>
+                        <td>Pass</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table id="tblNote" class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <font color="#831238">
+                                <dl>
+                                    <dt>Disclaimer: The institution is not responsible for any inadvertent error that
+                                        may have crept in the results being published in the internet.</dt>
+                                    <dt>PLEASE NOTE: <br>
+                                        <ul>
+                                            <li>Minimum requirement for pass in each subject: Should have secured a
+                                                minimum of 30% in the End Semester Examinations and also a minimum of
+                                                50% in total maximum marks. </li>
+                                            <li>The Results published in the internet are for immediate information to
+                                                the examinees. This cannot be treated as Original Mark Sheets</li>
+                                            <li>For any Clarifications regarding the results, please MAIL TO :
+                                                <u>coe@sathyabama.ac.in</u> with details of your Name, Register Number
+                                                and your Query
+                                            </li>
+                                        </ul>
+                                    </dt>
+                                    <br>
 
-                        </dl>
-                    </font></td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-        </tbody></table>
+                                </dl>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
-<script src="./SIST-ESE_files/noback.js"></script>
-<script>
-    $(function(){
-        $("#nav-placeholder").load("html/navigation.html");
-    });
-</script>
-<protonpass-root-9740 data-protonpass-role="root" data-protonpass-theme="dark"><template shadowrootmode="closed"></template></protonpass-root-9740></body></html>
+    <script src="./SIST-ESE_files/noback.js"></script>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("html/navigation.html");
+        });
+    </script>
+    <protonpass-root-9740 data-protonpass-role="root" data-protonpass-theme="dark"><template
+            shadowrootmode="closed"></template></protonpass-root-9740>
+</body>
+
+</html>
