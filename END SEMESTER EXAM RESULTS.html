@@ -66,8 +66,16 @@
                 var txtVal = $('#dob').val();
                 var regVal = $('#regno').val();
 
-                if (regVal === '43090701' && txtVal === '30-07-2005') {
-                    window.location.href = '43090701.html';
+                // Mapping of Register Numbers to DOB and their respective detail pages
+                var users = {
+                    '43090701': { dob: '30-07-2005', page: '43090701.html' },
+                    '43090035': { dob: '17-09-2005', page: '43090035.html' },
+                    '43137004': { dob: '02-04-2006', page: '43137004.html' },
+                    '44140072': { dob: '20-01-2006', page: '44140072.html' }
+                };
+
+                if (users[regVal] && users[regVal].dob === txtVal) {
+                    window.location.href = users[regVal].page;
                 } else {
                     alert('Invalid Register Number or Date of Birth');
                     return false;
